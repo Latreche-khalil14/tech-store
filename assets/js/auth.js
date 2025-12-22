@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 showMessage(data.message, 'success');
                 localStorage.setItem('user', JSON.stringify(data.user));
-                setTimeout(() => window.location.href = 'index.html', 1000);
+                setTimeout(() => window.location.href = 'index.php', 1000);
             } else {
                 showMessage(data.message, 'error');
             }
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
             if (data.success) {
                 showMessage(data.message, 'success');
                 localStorage.setItem('user', JSON.stringify(data.user));
-                setTimeout(() => window.location.href = 'index.html', 1000);
+                setTimeout(() => window.location.href = 'index.php', 1000);
             } else {
                 showMessage(data.message, 'error');
             }

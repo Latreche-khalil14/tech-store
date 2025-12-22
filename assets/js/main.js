@@ -3,6 +3,7 @@ $(document).ready(function() {
     checkAuth();
     loadFeaturedProducts();
     updateCartIcon();
+    setupMobileMenu();
 
     // تسجيل الخروج
     $('#logout-btn').on('click', function() {
@@ -30,7 +31,7 @@ $(document).ready(function() {
                     let html = '';
                     products.forEach(p => {
                         html += `
-                            <div class="product-card" onclick="location.href='product-details.html?id=${p.id}'" style="cursor:pointer">
+                            <div class="product-card" onclick="location.href='product-details.php?id=${p.id}'" style="cursor:pointer">
                                 <div class="product-image">🖼️</div>
                                 <div class="product-info">
                                     <h3>${p.name}</h3>
@@ -67,4 +68,19 @@ function updateCartIcon() {
     let cart = JSON.parse(localStorage.getItem('cart')) || [];
     let count = cart.reduce((total, item) => total + item.quantity, 0);
     $('.cart-count').text(count);
+}
+
+function setupMobileMenu() {
+    $('.mobile-menu-btn').on('click', function() {
+        $('#main-nav').toggleClass('active');
+        $(this).text($('#main-nav').hasClass('active') ? '✕' : '☰');
+    });
+
+    // Close menu when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('header').length) {
+            $('#main-nav').removeClass('active');
+            $('.mobile-menu-btn').text('☰');
+        }
+    });
 }
