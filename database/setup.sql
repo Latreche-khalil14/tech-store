@@ -1,11 +1,13 @@
 -- Tech Store - Complete Setup Script
-CREATE DATABASE IF NOT EXISTS tech_store CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+DROP DATABASE IF EXISTS tech_store;
+CREATE DATABASE tech_store CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE tech_store;
 -- 1. Users Table
-CREATE TABLE IF NOT EXISTS users (
+CREATE TABLE users (
     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
     username VARCHAR(50) NOT NULL UNIQUE,
     email VARCHAR(100) NOT NULL UNIQUE,
+    phone VARCHAR(20),
     password VARCHAR(255) NOT NULL,
     full_name VARCHAR(100),
     role ENUM('admin', 'customer') DEFAULT 'customer',

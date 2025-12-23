@@ -1,2 +1,50 @@
-node_modules/
+# Dependencies
+/vendor/
+/node_modules/
+
+# Environment files
 .env
+.env.local
+.env.*.local
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+/logs/*.log
+/logs/*.txt
+!/logs/.gitkeep
+
+# Cache
+/cache/
+*.cache
+
+# Uploads
+/uploads/*
+!/uploads/.gitkeep
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Database backups
+*.sql.backup
+*.sql.gz
+
+# Config (if contains sensitive data)
+# config/database.php
+
+# Compiled assets
+/assets/dist/
+/public/build/
