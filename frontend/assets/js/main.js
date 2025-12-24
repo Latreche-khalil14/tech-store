@@ -20,7 +20,7 @@ $(document).ready(function() {
     $('#logout-btn, #mobile-logout-btn').on('click', function() {
         localStorage.removeItem('user');
         localStorage.removeItem('cart'); // تنظيف السلة عند الخروج
-        $.post('api/auth/logout.php', function() {
+        $.post('../backend/api/auth/logout.php', function() {
             window.location.replace('login.php');
         });
     });
@@ -39,7 +39,7 @@ function checkAuth(user) {
     if (user) {
         let adminLink = '';
         if (user.role && user.role.toLowerCase() === 'admin') {
-            adminLink = `<a href="admin/index.php" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-all font-bold text-xs shadow-lg shadow-blue-600/20 whitespace-nowrap mr-3">لوحة التحكم ⚙️</a>`;
+            adminLink = `<a href="../backend/admin/index.php" class="bg-blue-600 text-white px-4 py-2 rounded-xl hover:bg-blue-700 transition-all font-bold text-xs shadow-lg shadow-blue-600/20 whitespace-nowrap mr-3">لوحة التحكم ⚙️</a>`;
         }
         
         $userNavItem.html(`
@@ -79,13 +79,13 @@ function checkAuth(user) {
 }
 
 function loadFeaturedProducts() {
-    fetchProducts('api/products/get_all.php?limit=4', '#featured-products');
+    fetchProducts('../backend/api/products/get_all.php?limit=4', '#featured-products');
 }
 
 function loadProducts() {
     const category = $('#category-filter').val() || '';
     const search = $('#search-input').val() || '';
-    fetchProducts(`api/products/get_all.php?category=${category}&search=${search}`, '#products-list');
+    fetchProducts(`../backend/api/products/get_all.php?category=${category}&search=${search}`, '#products-list');
 }
 
 // Search & Filter Listeners

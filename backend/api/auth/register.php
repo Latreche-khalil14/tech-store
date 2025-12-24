@@ -3,8 +3,8 @@
  * API تسجيل مستخدم جديد
  */
 
-require_once '../../config/database.php';
-require_once '../../config/helpers.php';
+require_once '../config/database.php';
+require_once '../config/helpers.php';
 
 // التأكد من طريقة الطلب
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {

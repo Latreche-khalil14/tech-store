@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const password = document.getElementById('login-password').value;
             
             try {
-                const response = await fetch('api/auth/login.php', {
+                const response = await fetch('../backend/api/auth/login.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ email, password })
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         localStorage.removeItem('returnUrl');
                         setTimeout(() => window.location.href = returnUrl, 1500);
                     } else if (user.role === 'admin') {
-                        setTimeout(() => window.location.href = 'admin/index.php', 1500);
+                        setTimeout(() => window.location.href = '../backend/admin/index.php', 1500);
                     } else {
                         setTimeout(() => window.location.href = 'index.php', 1500);
                     }
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             try {
 
-                const response = await fetch('api/auth/register.php', {
+                const response = await fetch('../backend/api/auth/register.php', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({ username, full_name, email, password, phone })

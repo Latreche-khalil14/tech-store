@@ -1,6 +1,6 @@
 <?php
-require_once 'config/database.php';
-require_once 'config/helpers.php';
+require_once '../backend/config/database.php';
+require_once '../backend/config/helpers.php';
 requireLogin();
 include 'includes/header.php';
 ?>

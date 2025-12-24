@@ -3,8 +3,8 @@
  * API الإحصائيات (للوحة تحكم المسؤول)
  */
 
-require_once '../../config/database.php';
-require_once '../../config/helpers.php';
+require_once '../config/database.php';
+require_once '../config/helpers.php';
 
 // حماية الصفحة: للمسؤولين فقط
 protectAdmin();
