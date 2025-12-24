@@ -45,7 +45,7 @@
                     </div>
                 </div>
 
-                <button onclick="location.href='checkout.php'"
+                <button onclick="handleCheckout()"
                     class="w-full py-5 bg-blue-600 text-white hover:bg-blue-700 font-bold text-xl rounded-2xl transition-all duration-300 shadow-xl shadow-blue-600/20 hover:shadow-blue-600/30 transform hover:-translate-y-1 active:scale-95 flex justify-center items-center gap-2 group/btn">
                     <span>إتمام الطلب</span>
                     <span class="group-hover/btn:translate-x-[-5px] transition-transform">←</span>
@@ -68,8 +68,11 @@
             let cart = [];
             try {
                 const val = localStorage.getItem('cart');
-                cart = (val && val !== 'undefined') ? JSON.parse(val) : [];
+                console.log("Raw Cart Value:", val); // Debug
+                cart = (val && val !== 'undefined' && val !== 'null') ? JSON.parse(val) : [];
+                console.log("Parsed Cart:", cart); // Debug
             } catch (e) {
+                console.error("Cart Parse Error:", e); // Debug
                 cart = [];
                 localStorage.removeItem('cart');
             }
@@ -82,7 +85,7 @@
             try {
                 // Fetch all products in parallel
                 const productPromises = cart.map(item =>
-                    $.get(`api/products/get_by_id.php?id=${item.id}`).catch(() => null)
+                    $.get(`../api/products/get_by_id.php?id=${item.id}`).catch(() => null)
                 );
 
                 const responses = await Promise.all(productPromises);
@@ -90,15 +93,14 @@
                 let html = '';
                 let total = 0;
                 let count = 0;
-                let validItems = [];
 
                 responses.forEach((res, index) => {
                     if (res && res.success && res.data) {
                         const p = res.data;
-                        const item = cart.find(i => i.id == p.id); // Match back to cart item for quantity
+                        const item = cart.find(i => i.id == p.id);
 
                         if (item) {
-                            const subtotal = p.price * item.quantity;
+                            const subtotal = parseFloat(p.price) * item.quantity;
                             total += subtotal;
                             count += item.quantity;
 
@@ -132,8 +134,6 @@
                                      </button>
                                  </div>
                             `;
-
-                            validItems.push(item);
                         }
                     }
                 });
@@ -191,6 +191,27 @@
                 showConfirmButton: false,
                 timer: 2000
             });
+        }
+
+        window.handleCheckout = function () {
+            const user = localStorage.getItem('user');
+            if (!user) {
+                Swal.fire({
+                    title: 'يرجى تسجيل الدخول',
+                    text: 'يجب أن تكون مسجلاً لإتمام عملية الشراء',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'تسجيل الدخول',
+                    cancelButtonText: 'البقاء هنا'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        localStorage.setItem('returnUrl', 'checkout.php');
+                        window.location.href = 'login.php';
+                    }
+                });
+            } else {
+                window.location.href = 'checkout.php';
+            }
         }
     });
 </script>

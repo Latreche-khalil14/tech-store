@@ -24,7 +24,7 @@
             return;
         }
 
-        $.get(`api/products/get_by_id.php?id=${productId}`, function (res) {
+        $.get(`../api/products/get_by_id.php?id=${productId}`, function (res) {
             if (res.success) {
                 const p = res.data;
                 const safeName = p.name.replace(/'/g, "\\'"); // Prevent quote breaking

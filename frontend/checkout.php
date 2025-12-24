@@ -1,6 +1,6 @@
 <?php
-require_once '../backend/config/database.php';
-require_once '../backend/config/helpers.php';
+require_once '../config/database.php';
+require_once '../config/helpers.php';
 requireLogin();
 include 'includes/header.php';
 ?>
@@ -9,6 +9,7 @@ include 'includes/header.php';
 <script>
     // حماية إضافية بالـ JavaScript
     if (!localStorage.getItem('user')) {
+        localStorage.setItem('returnUrl', window.location.href);
         window.location.replace('login.php');
     }
 </script>
@@ -127,6 +128,7 @@ include 'includes/header.php';
         let cart = safeGet('cart') || [];
 
         if (!user) {
+            localStorage.setItem('returnUrl', window.location.href);
             window.location.replace('login.php');
             return;
         }
@@ -137,7 +139,7 @@ include 'includes/header.php';
 
         $('#checkout-form').on('submit', function (e) {
             e.preventDefault();
-            
+
             // قراءة السلة من الذاكرة اللحظية للمتصفح الآن
             const finalCart = JSON.parse(localStorage.getItem('cart')) || [];
             if (finalCart.length === 0) {
@@ -150,7 +152,7 @@ include 'includes/header.php';
             submitBtn.prop('disabled', true).addClass('opacity-50').text('جاري المعالجة... ⏳');
 
             $.ajax({
-                url: 'api/orders/create.php',
+                url: '../api/orders/create.php',
                 method: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify({
@@ -163,7 +165,7 @@ include 'includes/header.php';
                         // 1. التصفير الفوري والشامل
                         localStorage.removeItem('cart');
                         localStorage.setItem('cart', '[]');
-                        
+
                         // 2. تصفير العداد المرئي
                         $('#cart-count').text('0');
                         if (typeof updateCartIcon === 'function') updateCartIcon();
