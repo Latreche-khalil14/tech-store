@@ -1,0 +1,4 @@
+﻿/* Navbar Custom Styles */
+.navbar-glass { background: rgba(255,255,255,0.8) !important; backdrop-filter: blur(12px); border-bottom: 1px solid rgba(255,255,255,0.3); }
+.nav-link.active { color: var(--primary-color); background: rgba(79,70,229,0.1); border-color: var(--primary-color); }
+.icon-btn:hover { transform: translateY(-2px); }

@@ -1,0 +1,4 @@
+﻿/* Footer Specific Styles */
+footer { position: relative; overflow: hidden; }
+footer a:hover { transform: translateX(-5px); }
+.footer-gradient { background: linear-gradient(to bottom right, var(--primary-color), var(--secondary-color)); }

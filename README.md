@@ -76,7 +76,16 @@ tech-store2/
 
 ---
 
-## 👥 Team Responsibilities
+## � Project Leadership & Coordination
+
+This project is led by the **Frontend Specialist**, who acts as the **Project Architect**. Leadership responsibilities include:
+- **System Integration:** Ensuring seamless connection between Frontend UI and Backend APIs.
+- **Quality Assurance:** Final review of code consistency and directory structure.
+- **Master Repository Management:** Handling final merges and conflict resolution.
+
+---
+
+## �👥 Team Responsibilities
 
 This project follows a conflict-free "Copy-Paste" workflow designed for team efficiency:
 

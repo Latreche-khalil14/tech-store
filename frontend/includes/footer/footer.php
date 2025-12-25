@@ -1,4 +1,5 @@
 <!-- Premium Footer Section -->
+<link rel="stylesheet" href="includes/footer/footer.css">
 <footer class="bg-white border-t border-slate-100 pt-20 pb-10 overflow-hidden relative">
     <!-- Decorative Gradients -->
     <div

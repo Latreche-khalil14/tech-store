@@ -137,4 +137,6 @@
     });
 </script>
 
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/features/features.php'; ?>
+
+<?php include 'includes/footer/footer.php'; ?>

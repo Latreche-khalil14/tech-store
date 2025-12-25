@@ -48,3 +48,6 @@ desktop.ini
 # Compiled assets
 /assets/dist/
 /public/build/
+
+# Internal Documentation
+TEAM_GUIDE.md

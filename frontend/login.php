@@ -97,11 +97,12 @@
 
             <!-- Login Form -->
             <div id="login-form" class="form-section active">
-                <form id="loginForm" class="space-y-5">
+                <form id="loginForm" class="space-y-5" autocomplete="off">
                     <div class="space-y-2">
                         <label class="block text-sm font-bold text-slate-700 mr-1">البريد الإلكتروني</label>
                         <div class="relative group">
                             <input type="email" id="login-email" required placeholder="example@mail.com"
+                                autocomplete="off"
                                 class="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all outline-none font-bold text-slate-700 placeholder-slate-400">
                             <span
                                 class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 text-xl group-focus-within:text-primary transition-colors">📧</span>
@@ -116,6 +117,7 @@
                         </div>
                         <div class="relative group">
                             <input type="password" id="login-password" required placeholder="••••••••"
+                                autocomplete="new-password"
                                 class="w-full px-5 py-4 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 focus:ring-4 focus:ring-primary/10 transition-all outline-none font-bold text-slate-700 placeholder-slate-400">
                             <span
                                 class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 text-xl group-focus-within:text-primary transition-colors">🔒</span>
@@ -132,40 +134,46 @@
 
             <!-- Register Form -->
             <div id="register-form" class="form-section">
-                <form id="registerForm" class="space-y-4">
+                <form id="registerForm" class="space-y-4" autocomplete="off">
                     <div class="space-y-1.5">
                         <label class="block text-sm font-bold text-slate-700 mr-1">الاسم الكامل</label>
                         <div class="relative group">
                             <input type="text" id="reg-fullname" required placeholder="مثال: خليل ابراهيم"
+                                autocomplete="off"
                                 class="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 transition-all outline-none font-bold text-slate-700">
-                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">👤</span>
+                            <span
+                                class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">👤</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
                         <label class="block text-sm font-bold text-slate-700 mr-1">اسم المستخدم</label>
                         <div class="relative group">
-                            <input type="text" id="reg-username" required placeholder="khalil123"
+                            <input type="text" id="reg-username" required placeholder="khalil123" autocomplete="off"
                                 class="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 transition-all outline-none font-bold text-slate-700">
-                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">🆔</span>
+                            <span
+                                class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">🆔</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
                         <label class="block text-sm font-bold text-slate-700 mr-1">البريد الإلكتروني</label>
                         <div class="relative group">
-                            <input type="email" id="reg-email" required placeholder="abc@example.com"
+                            <input type="email" id="reg-email" required placeholder="abc@example.com" autocomplete="off"
                                 class="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 transition-all outline-none font-bold text-slate-700">
-                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">📧</span>
+                            <span
+                                class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">📧</span>
                         </div>
                     </div>
 
                     <div class="space-y-1.5">
                         <label class="block text-sm font-bold text-slate-700 mr-1">رقم الهاتف</label>
                         <div class="relative group">
-                            <input type="tel" id="reg-phone" required placeholder="05XXXXXXXX"
-                                class="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 transition-all outline-none font-bold text-slate-700">
-                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">📱</span>
+                            <input type="tel" id="reg-phone" required placeholder="05XXXXXXXX" autocomplete="off"
+                                dir="ltr"
+                                class="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 transition-all outline-none font-bold text-slate-700 text-right">
+                            <span
+                                class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">📱</span>
                         </div>
                     </div>
 
@@ -173,8 +181,10 @@
                         <label class="block text-sm font-bold text-slate-700 mr-1">كلمة المرور</label>
                         <div class="relative group">
                             <input type="password" id="reg-password" required placeholder="••••••••"
+                                autocomplete="new-password"
                                 class="w-full px-5 py-3.5 bg-slate-50 border-2 border-slate-100 rounded-2xl focus:bg-white focus:border-primary/50 transition-all outline-none font-bold text-slate-700">
-                            <span class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">🔒</span>
+                            <span
+                                class="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors">🔒</span>
                         </div>
                     </div>
 
@@ -192,4 +202,4 @@
 </div>
 
 <script src="assets/js/auth.js?v=1.2"></script>
-<?php include 'includes/footer.php'; ?>
+<?php include 'includes/footer/footer.php'; ?>
